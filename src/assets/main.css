@@ -1,0 +1,8 @@
+body{
+    margin: 0;
+    color: var(--widget-color);
+}
+
+*{
+    user-select: none;
+}

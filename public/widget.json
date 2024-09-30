@@ -1,0 +1,60 @@
+{
+  "name": "widget.js.monitor",
+  "version": "0.1.0",
+  "requiredAppVersion": "24.9.1",
+  "author": "Neo Fu",
+  "homepage": "",
+  "title": {
+    "zh-CN": "硬件监控组件包",
+    "en-US": "Hardware Monitor Widget Package"
+  },
+  "description": {
+    "zh-CN": "监控计算机CPU、内存、磁盘、网络等信息",
+    "en-US": "Monitor computer CPU, memory, disk, network and other information"
+  },
+  "entry": "/",
+  "remote": {
+    "base": "/monitor",
+    "hostname": "localhost",
+    "hash": true
+  },
+  "hash": true,
+  "url": "",
+  "widgets": [
+    {
+      "name": "cn.example.widget.base_panel",
+      "title": {
+        "zh-CN": "基础面板",
+        "en-US": "Base Panel"
+      },
+      "description": {
+        "zh-CN": "显示CPU、内存、磁盘等硬件负载西信息",
+        "en-US": "Display CPU, memory, disk information and so on"
+      },
+      "keywords": [
+        "recommend"
+      ],
+      "security": false,
+      "permissions": [],
+      "lang": "zh-CN",
+      "width": 4,
+      "height": 2,
+      "maxWidth": 4,
+      "webviewTag": false,
+      "maxHeight": 2,
+      "minWidth": 4,
+      "minHeight": 2,
+      "movable": true,
+      "singleton": false,
+      "resizable": true,
+      "path": "/widget/base_panel",
+      "meta": {},
+      "backgroundThrottling": true,
+      "previewImage": "修改为组件预览图地址",
+      "categories": [],
+      "supportDeployMode": 17,
+      "routes": []
+    }
+  ],
+  "pages": []
+}
