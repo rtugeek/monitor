@@ -1,12 +1,13 @@
 {
-  "name": "hello-widget",
+  "name": "@widget-js/monitor",
   "type": "module",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
     "build": "vite build",
+    "release": "widget release -t ftp",
     "update:widgetjs": "widget dependencies -t remote"
   },
   "dependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "widget.js.monitor",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "requiredAppVersion": "24.9.1",
   "author": "Neo Fu",
   "homepage": "",
@@ -15,7 +15,7 @@
   "entry": "/",
   "remote": {
     "base": "/monitor",
-    "hostname": "localhost",
+    "hostname": "widgetjs.cn",
     "hash": true
   },
   "hash": true,
@@ -24,11 +24,11 @@
     {
       "name": "cn.example.widget.base_panel",
       "title": {
-        "zh-CN": "基础面板",
-        "en-US": "Base Panel"
+        "zh-CN": "监控面板",
+        "en-US": "Monitor"
       },
       "description": {
-        "zh-CN": "显示CPU、内存、磁盘等硬件负载西信息",
+        "zh-CN": "显示CPU、内存、磁盘等硬件负载信息",
         "en-US": "Display CPU, memory, disk information and so on"
       },
       "keywords": [
@@ -50,8 +50,10 @@
       "path": "/widget/base_panel",
       "meta": {},
       "backgroundThrottling": true,
-      "previewImage": "/images/preview.base_panel.png",
-      "categories": [],
+      "previewImage": "/image/preview_base_panel.png",
+      "categories": [
+        "utilities"
+      ],
       "supportDeployMode": 17,
       "routes": []
     }

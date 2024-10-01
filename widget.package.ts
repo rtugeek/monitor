@@ -9,7 +9,7 @@ export default new WidgetPackage({
   entry: '/',
   remote:{
     base: '/monitor',
-    hostname: 'localhost',
+    hostname: 'widgetjs.cn',
     hash: true,
   },
   requiredAppVersion:'24.9.1',
