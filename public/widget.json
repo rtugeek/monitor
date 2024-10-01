@@ -50,7 +50,7 @@
       "path": "/widget/base_panel",
       "meta": {},
       "backgroundThrottling": true,
-      "previewImage": "修改为组件预览图地址",
+      "previewImage": "/images/preview.base_panel.png",
       "categories": [],
       "supportDeployMode": 17,
       "routes": []

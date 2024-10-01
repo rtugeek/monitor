@@ -2,13 +2,14 @@
   <widget-wrapper>
     <div class="flex flex-col p-2 h-full box-border">
       <div class="header pb-1 mb-1">
-        <div class="text-md font-bold">Base Panel</div>
+        <div class="text-md font-bold">Monitor</div>
       </div>
       <div class="w-full" style="border: aliceblue"></div>
-      <div class="flex gap-2 flex-1 items-center">
-        <HardwareProgress title="CPU" :progress="cpuPercent" :subtitle="`${cpuCoreNumber} C`"/>
-        <HardwareProgress title="Mem" :progress="memPercent" :subtitle="`${memTotal} GB`"/>
-        <HardwareProgress title="GPU" :progress="gpuPercent" :subtitle="`${gpuCoreTemperature} ℃`"/>
+      <div class="flex flex-1 items-center">
+        <HardwareProgress class="flex-1" title="CPU" :progress="cpuPercent" :subtitle="`${cpuCoreNumber} C`"/>
+        <HardwareProgress class="flex-1" title="Mem" :progress="memPercent" :subtitle="`${memTotal} GB`"/>
+        <HardwareProgress class="flex-1" title="GPU" :progress="gpuPercent" :subtitle="`${gpuCoreTemperature} ℃`"/>
+        <NetworkBlock ref="networkRef"/>
       </div>
     </div>
   </widget-wrapper>
@@ -20,10 +21,12 @@ import {useTimeoutPoll} from "@vueuse/core";
 import {ref} from "vue";
 import HardwareProgress from "@/widgets/base-panel/HardwareProgress.vue";
 import {SystemApi} from "@widget-js/core";
+import NetworkBlock from "@/widgets/base-panel/NetworkBlock.vue";
 
 useWidget();
 const cpuCoreNumber = ref(0)
 const cpuPercent = ref(0)
+const networkRef = ref<InstanceType<typeof NetworkBlock>>()
 const memPercent = ref(0)
 const gpuPercent = ref(0)
 const gpuCoreTemperature = ref(0)
@@ -61,7 +64,6 @@ const load = ()=>{
       }
     }
     if (gpuTemperature) {
-      console.log(gpuTemperature)
       const coreTemperature = gpuTemperature.children.find(it=> it.text == 'GPU Core');
       if (coreTemperature) {
         let value = Number.parseInt(coreTemperature.value.replace("℉",""));
@@ -70,13 +72,15 @@ const load = ()=>{
       }
     }
   })
+
+  networkRef.value?.update()
 }
 
-useTimeoutPoll(load, 2000,{immediate:true})
+useTimeoutPoll(load, 3000,{immediate:true})
 </script>
 
 <style scoped>
 .header{
-  border-bottom: solid 1px var(--widget-border-color, #fff);
+  border-bottom: solid 1px var(--widget-divider-color, #fff);
 }
 </style>

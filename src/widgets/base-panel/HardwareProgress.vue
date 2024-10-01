@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center h-full justify-between">
     <div>{{title}}</div>
     <circle-progress :progress="progress" style="height:60px;"/>
     <div>{{ subtitle }}</div>
