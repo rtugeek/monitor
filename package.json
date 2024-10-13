@@ -8,14 +8,16 @@
     "preview": "vite preview",
     "build": "vite build",
     "release": "widget release -t ftp",
-    "update:widgetjs": "widget dependencies -t remote"
+    "update:widgetjs": "widget dependencies -t remote",
+    "remote": "widget deps -t remote"
   },
   "dependencies": {
     "@icon-park/vue-next": "latest",
     "@vueuse/core": "latest",
-    "@widget-js/core": "latest",
-    "@widget-js/vue3": "latest",
+    "@widget-js/core": "^24.1.1-beta.42",
+    "@widget-js/vue3": "^24.1.1-beta.41",
     "element-plus": "^2.8.1",
+    "semver": "^7.6.3",
     "vue": "^3.3.11",
     "vue-i18n": "10",
     "vue-router": "^4.2.5"
@@ -23,10 +25,11 @@
   "devDependencies": {
     "@tsconfig/node18": "^18.2.2",
     "@types/node": "^18.19.3",
+    "@types/semver": "^7.5.8",
     "@vitejs/plugin-vue": "^4.5.2",
     "@vue/tsconfig": "^0.5.0",
-    "@widget-js/cli": "latest",
-    "@widget-js/vite-plugin-widget": "24.1.1-beta.41",
+    "@widget-js/cli": "^24.1.1-beta.40",
+    "@widget-js/vite-plugin-widget": "^24.1.1-beta.41",
     "typescript": "~5.3.0",
     "unocss": "latest",
     "unplugin-auto-import": "^0.11.4",

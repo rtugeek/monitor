@@ -1,17 +1,17 @@
 export class BytesUtils {
     /**
-     * kilobyte to human-readable string
+     * byte to human-readable string
      * @param num
      */
-    static prettyKilobyte(num: number): string {
-        const sizes = ['KB', 'MB', 'GB', 'TB'];
+    static pretty(num: number): string {
+        const sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
         let index = 0;
 
         while (num >= 1024 && index < sizes.length - 1) {
             num /= 1024;
             index++;
         }
-        return `${num.toFixed(2).replace('.00', '')} ${sizes[index]}`;
+        return `${Math.round(num)} ${sizes[index]}`;
     }
 
     /**
