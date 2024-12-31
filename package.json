@@ -14,8 +14,8 @@
   "dependencies": {
     "@icon-park/vue-next": "latest",
     "@vueuse/core": "latest",
-    "@widget-js/core": "^24.1.1-beta.42",
-    "@widget-js/vue3": "^24.1.1-beta.41",
+    "@widget-js/core": "^24.1.1-beta.44",
+    "@widget-js/vue3": "^24.1.1-beta.48",
     "element-plus": "^2.8.1",
     "semver": "^7.6.3",
     "vue": "^3.3.11",

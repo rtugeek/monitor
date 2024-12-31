@@ -102,7 +102,10 @@ appVersion.isLessThan(targetVersion).then((result) => {
 })
 </script>
 
-<style scoped>
+<style>
+body{
+  font-size: var(--widget-font-size);
+}
 .header{
   border-bottom: solid 1px var(--widget-divider-color, #fff);
 }

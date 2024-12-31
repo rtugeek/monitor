@@ -14,7 +14,13 @@ const BasePanelWidget = new Widget({
   maxHeight: 2,
   previewImage: '/image/preview_base_panel.png',
   path: '/widget/base_panel',
-  configPagePath: undefined,
+  configPagePath: '/widget/base_panel/config?frame=true&transparent=false&height=400',
+  socialLinks:[
+    {
+      name: 'github',
+      link: 'https://github.com/rtugeek/monitor'
+    }
+  ]
 });
 
 export default BasePanelWidget;

@@ -55,7 +55,14 @@
         "utilities"
       ],
       "supportDeployMode": 17,
-      "routes": []
+      "configPagePath": "/widget/base_panel/config?frame=true&transparent=false&height=400",
+      "routes": [],
+      "socialLinks": [
+        {
+          "name": "github",
+          "link": "https://github.com/rtugeek/monitor"
+        }
+      ]
     }
   ],
   "pages": []

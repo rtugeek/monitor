@@ -81,16 +81,19 @@ onMounted(async ()=>{
   </div>
 </template>
 
-<style scoped>
+<style>
+/* 5rem 不起作用，目前还不知道什么原因 */
+:root{
+  --size: calc(var(--widget-font-size) * 5);
+}
 .circle-progress{
   position: relative;
-  width: 60px;
-  height: 60px;
-  max-width: 60px;
+  width: var(--size);
+  height: var(--size);
+  max-width: var(--size);
 }
 canvas{
-  position: absolute;
-  width: 60px;
+  width: var(--size);
 }
 
 .label{
@@ -99,7 +102,7 @@ canvas{
   left: 50%;
   user-select: none;
   transform: translate(-50%,-50%);
-  font-size: 12px;
+  font-size: 0.6rem;
   font-weight: bold;
 }
 </style>
