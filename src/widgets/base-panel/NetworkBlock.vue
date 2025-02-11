@@ -52,23 +52,24 @@ const update = (network: Hardware[])=>{
     uploadSpeed.value = uploadTotalSpeed
 }
 defineExpose({update})
-
-const needUpdate = ref(true)
 </script>
 
 <template>
-  <div class="flex flex-col flex-1 justify-between h-full items-center">
+  <div class="flex flex-col flex-1 justify-between h-full items-center network">
     <div>Net</div>
-    <div class="text-sm">↓: {{ BytesUtils.pretty(downloadSpeed) }}</div>
+    <div class="data-label text-sm">↓: {{ BytesUtils.pretty(downloadSpeed) }}</div>
     <div class="data">{{ downloadedData }}</div>
-    <div class="text-sm">↑: {{ BytesUtils.pretty(uploadSpeed) }}</div>
+    <div class="data-label text-sm">↑: {{ BytesUtils.pretty(uploadSpeed) }}</div>
     <div class="data">{{ uploadedData }}</div>
   </div>
 </template>
 
 <style scoped>
+.data-label{
+  font-size: var(--widget-font-size);
+}
 .data{
-  font-size: 12px;
+  font-size: var(--widget-font-size);
   opacity: 0.6;
 }
 </style>

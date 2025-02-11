@@ -102,7 +102,7 @@ canvas{
   left: 50%;
   user-select: none;
   transform: translate(-50%,-50%);
-  font-size: 0.6rem;
+  font-size: calc(var(--widget-font-size) * 0.8);
   font-weight: bold;
 }
 </style>
