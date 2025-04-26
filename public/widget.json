@@ -22,6 +22,39 @@
   "url": "",
   "widgets": [
     {
+      "name": "widget.js.monitor.server",
+      "title": {
+        "zh-CN": "服务器监控"
+      },
+      "description": {
+        "zh-CN": ""
+      },
+      "keywords": [
+        "recommend"
+      ],
+      "security": false,
+      "permissions": [],
+      "lang": "zh-CN",
+      "width": 4,
+      "height": 6,
+      "maxWidth": 4,
+      "webviewTag": false,
+      "maxHeight": 6,
+      "minWidth": 4,
+      "minHeight": 4,
+      "movable": true,
+      "singleton": false,
+      "resizable": true,
+      "path": "/widget/server",
+      "meta": {},
+      "backgroundThrottling": true,
+      "previewImage": "修改为组件预览图地址",
+      "categories": [],
+      "supportDeployMode": 17,
+      "configPagePath": "/widget/config/server?width=600&height=500&frame=true&transparent=false",
+      "routes": []
+    },
+    {
       "name": "cn.example.widget.base_panel",
       "title": {
         "zh-CN": "监控面板",
