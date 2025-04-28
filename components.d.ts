@@ -7,6 +7,23 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    BaseView: typeof import('./src/components/BaseView.vue')['default']
+    CircleProgress: typeof import('./src/components/CircleProgress.vue')['default']
+    CloudInput: typeof import('./src/components/CloudInput.vue')['default']
+    CloudPicker: typeof import('./src/components/CloudPicker.vue')['default']
+    DateInput: typeof import('./src/components/DateInput.vue')['default']
+    ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
+    NutButton: typeof import('@nutui/nutui')['Button']
+    NutConfigProvider: typeof import('@nutui/nutui')['ConfigProvider']
+    NutDatePicker: typeof import('@nutui/nutui')['DatePicker']
+    NutDialog: typeof import('@nutui/nutui')['Dialog']
+    NutForm: typeof import('@nutui/nutui')['Form']
+    NutFormItem: typeof import('@nutui/nutui')['FormItem']
+    NutInput: typeof import('@nutui/nutui')['Input']
+    NutNavbar: typeof import('@nutui/nutui')['Navbar']
+    NutPicker: typeof import('@nutui/nutui')['Picker']
+    NutPopup: typeof import('@nutui/nutui')['Popup']
+    OsDataComponent: typeof import('./src/components/OsDataComponent.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

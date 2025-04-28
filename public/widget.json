@@ -1,12 +1,12 @@
 {
   "name": "widget.js.monitor",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "requiredAppVersion": "24.9.1",
   "author": "Neo Fu",
   "homepage": "",
   "title": {
     "zh-CN": "硬件监控组件包",
-    "en-US": "Hardware Monitor Widget Package"
+    "en-US": "Hardware and server Monitor Widget Package"
   },
   "description": {
     "zh-CN": "监控计算机CPU、内存、磁盘、网络等信息",
@@ -24,10 +24,12 @@
     {
       "name": "widget.js.monitor.server",
       "title": {
-        "zh-CN": "服务器监控"
+        "zh-CN": "服务器监控",
+        "en-US": "Server Monitor"
       },
       "description": {
-        "zh-CN": ""
+        "zh-CN": "实时监控多个云服务器状态",
+        "en-US": "Real-time monitoring of multiple cloud server status"
       },
       "keywords": [
         "recommend"
@@ -39,7 +41,7 @@
       "height": 6,
       "maxWidth": 4,
       "webviewTag": false,
-      "maxHeight": 6,
+      "maxHeight": 12,
       "minWidth": 4,
       "minHeight": 4,
       "movable": true,
@@ -48,10 +50,12 @@
       "path": "/widget/server",
       "meta": {},
       "backgroundThrottling": true,
-      "previewImage": "修改为组件预览图地址",
-      "categories": [],
+      "previewImage": "/image/preview_server.png",
+      "categories": [
+        "utilities"
+      ],
       "supportDeployMode": 17,
-      "configPagePath": "/widget/config/server?width=600&height=500&frame=true&transparent=false",
+      "configPagePath": "/widget/config/server?width=400&height=700&frame=true&transparent=false",
       "routes": []
     },
     {

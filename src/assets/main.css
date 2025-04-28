@@ -7,3 +7,105 @@ body{
 *{
     user-select: none;
 }
+
+:root {
+    --color-on-background: rgba(0, 0, 0, 0.8);
+    --nut-primary-color: #478EF2;
+    --nut-primary-color-end: #496AF2;
+    --nut-navbar-title-font-weight: 700;
+    --nut-navbar-title-font-color: #0e1b2c;
+    --nut-navbar-title-font: 18px;
+    --background-color: #F8F8F8;
+    --nut-dark-color: #b9b9b9;
+    --nut-black: #b9b9b9;
+}
+
+h5{
+    margin: 0.2rem 0;
+}
+
+h4{
+    margin: 0.2rem 0;
+}
+
+.form-item{
+    display: flex;
+    align-items: center;
+    gap:0.5rem;
+    color: var(--nut-title-color,#666666);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-on-background: #c4c4c4;
+        --nut-primary-color: #478EF2;
+        --nut-primary-color-end: #496AF2;
+        --nut-navbar-title-font-weight: 700;
+        --nut-navbar-title-font-color: #0e1b2c;
+        --nut-navbar-title-font: 18px;
+        --background-color: #0F0F0F;
+        --nut-cell-after-border-bottom: 1px solid #555555;
+    }
+
+    .nut-cell-group .nut-cell-group__wrap{
+        box-shadow: none;
+        background-color: transparent;
+    }
+    .nut-navbar{
+        box-shadow: none;
+    }
+
+    .nut-theme-dark .nut-input{
+        background-color: transparent;
+    }
+
+    .nut-tabbar{
+        border-top: var(--nut-tabbar-border-top, 1px solid #555555);
+    }
+
+    .nut-input .input-text, .nut-input__text--readonly {
+        background: var(--background-color);
+    }
+
+}
+
+
+
+.nut-button--plain:not([disabled]):hover {
+    background: var(--nut-button-plain-background-color, var(--nut-white, #fff));
+    background-origin: border-box;
+}
+
+.i-icon {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+/* 滚动条轨道 */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+    background: #d8d8d8;
+    border-radius: 10px;
+}
+
+/* 当用户悬停在滚动条上时 */
+::-webkit-scrollbar-thumb:hover {
+    background: #e5e5e5;
+}
+
+/* 可选：滚动条按钮（上下箭头等） */
+::-webkit-scrollbar-button {
+    display: none;
+}

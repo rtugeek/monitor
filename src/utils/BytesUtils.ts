@@ -1,35 +1,38 @@
 export class BytesUtils {
-    /**
-     * byte to human-readable string
-     * @param num
-     */
-    static pretty(num: number): string {
-        const sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
-        let index = 0;
+  /**
+   * byte to human-readable string
+   * @param num
+   */
+  static pretty(num: number): string {
+    const sizes = ['B', 'KB', 'MB', 'GB', 'TB']
+    let index = 0
 
-        while (num >= 1024 && index < sizes.length - 1) {
-            num /= 1024;
-            index++;
-        }
-        return `${Math.round(num)} ${sizes[index]}`;
+    while (num >= 1024 && index < sizes.length - 1) {
+      num /= 1024
+      index++
     }
+    return `${Math.round(num)} ${sizes[index]}`
+  }
 
-    /**
-     * human-readable string to kilobyte
-     * @param text
-     */
-    static parseKilobyte(text: string): number {
-        let speed = 0
-        let str = text.replace('/s','')
-        if (str.includes('KB')) {
-            speed = Number.parseInt(str.replace('KB', ''));
-        } else if (str.includes('MB')) {
-            speed = Number.parseInt(str.replace('MB', '')) * 1024;
-        } else if (str.includes('GB')) {
-            speed = Number.parseInt(str.replace('GB', '')) * 1024 * 1024;
-        }else if (str.includes('TB')) {
-            speed = Number.parseInt(str.replace('TB', '')) * 1024 * 1024 * 1024;
-        }
-        return speed;
+  /**
+   * human-readable string to kilobyte
+   * @param text
+   */
+  static parseKilobyte(text: string): number {
+    let speed = 0
+    const str = text.replace('/s', '')
+    if (str.includes('KB')) {
+      speed = Number.parseInt(str.replace('KB', ''))
     }
+    else if (str.includes('MB')) {
+      speed = Number.parseInt(str.replace('MB', '')) * 1024
+    }
+    else if (str.includes('GB')) {
+      speed = Number.parseInt(str.replace('GB', '')) * 1024 * 1024
+    }
+    else if (str.includes('TB')) {
+      speed = Number.parseInt(str.replace('TB', '')) * 1024 * 1024 * 1024
+    }
+    return speed
+  }
 }

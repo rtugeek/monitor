@@ -7,18 +7,18 @@ export default new WidgetPackage({
     'en-US': 'Monitor computer CPU, memory, disk, network and other information',
   },
   entry: '/',
-  remote:{
+  remote: {
     base: '/monitor',
     hostname: 'widgetjs.cn',
     hash: true,
   },
-  requiredAppVersion:'24.9.1',
+  requiredAppVersion: '24.9.1',
   hash: true,
   homepage: '',
   name: 'widget.js.monitor',
   title: {
     'zh-CN': '硬件监控组件包',
-    'en-US': 'Hardware Monitor Widget Package',
+    'en-US': 'Hardware and server Monitor Widget Package',
   },
   devOptions: {
     folder: './src/widgets/',

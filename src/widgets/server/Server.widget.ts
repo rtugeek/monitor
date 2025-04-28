@@ -1,23 +1,22 @@
-import { Widget, WidgetKeyword } from '@widget-js/core';
-//TODO 修改组件信息，标题，描述，关键词
+import { Widget, WidgetKeyword } from '@widget-js/core'
+
 const ServerWidget = new Widget({
   name: 'widget.js.monitor.server',
-  title: { 'zh-CN': '服务器监控','en-US':'Server Monitor' },
-  description: { 'zh-CN': '' },
+  title: { 'zh-CN': '服务器监控', 'en-US': 'Server Monitor' },
+  description: { 'zh-CN': '实时监控多个云服务器状态', 'en-US': 'Real-time monitoring of multiple cloud server status' },
   keywords: [WidgetKeyword.RECOMMEND],
-  categories: [],
+  categories: ['utilities'],
   lang: 'zh-CN',
   width: 4,
   height: 6,
   minWidth: 4,
   maxWidth: 4,
-  disabled: true,
   minHeight: 4,
-  maxHeight: 6,
-  previewImage: '修改为组件预览图地址',
+  maxHeight: 12,
+  previewImage: '/image/preview_server.png',
   path: '/widget/server',
   configPagePath:
-    '/widget/config/server?width=600&height=500&frame=true&transparent=false',
-});
+    '/widget/config/server?width=400&height=700&frame=true&transparent=false',
+})
 
-export default ServerWidget;
+export default ServerWidget

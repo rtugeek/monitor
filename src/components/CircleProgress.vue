@@ -1,0 +1,107 @@
+<script setup lang="ts">
+import { TransitionPresets, useTransition } from '@vueuse/core'
+import { nextTick, onMounted, onUpdated, ref, watch } from 'vue'
+
+const props = defineProps({
+  progress: {
+    type: Number,
+    default: 0.5,
+  },
+  strokeWidth: {
+    type: Number,
+    default: 100 * 0.12,
+  },
+})
+
+const startDeg = 15
+const maxDeg = 360 - 15
+const totalDeg = 360 - 30
+const canvasRef = ref<HTMLCanvasElement>()
+const animProgress = useTransition(() => props.progress, { transition: TransitionPresets.easeInOutCubic, duration: 1000 })
+watch(animProgress, (progress) => {
+  draw(progress)
+})
+
+function deg2rad(deg: number) {
+  return deg * Math.PI / 180
+}
+
+function draw(progress: number) {
+  const progressRad = deg2rad(progress * totalDeg)
+  const canvas = canvasRef.value
+  const ctx = canvas.getContext('2d')
+  const centerX = canvas.width / 2
+  const centerY = canvas.height / 2
+  const radius = (canvas.width / 2) * 0.8
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+  ctx.save()
+  ctx.translate(centerX, centerY)
+  ctx.rotate(deg2rad(90))
+
+  // draw backgroun border
+  ctx.beginPath()
+  const startRad = deg2rad(startDeg)
+  ctx.arc(0, 0, radius, startRad, deg2rad(maxDeg))
+  ctx.strokeStyle = 'rgba(222,222,222,0.4)'
+  ctx.lineWidth = props.strokeWidth
+  ctx.lineCap = 'round'
+  ctx.stroke()
+
+  // Create a radial gradient
+  const gradient = ctx.createConicGradient(0, 0, 0)
+  gradient.addColorStop(0, '#2cd228')
+  gradient.addColorStop(0.3, '#2cd228')
+  gradient.addColorStop(0.6, '#ffaf42')
+  gradient.addColorStop(0.8, '#ffaf42')
+  gradient.addColorStop(0.9, '#ff682d')
+  gradient.addColorStop(1, '#ff492d')
+
+  // Draw the circle
+  ctx.beginPath()
+  ctx.arc(0, 0, radius, startRad, startRad + progressRad)
+  ctx.strokeStyle = gradient
+  ctx.lineCap = 'round'
+  ctx.lineWidth = props.strokeWidth
+  ctx.stroke()
+  ctx.restore()
+}
+onMounted(async () => {
+  await nextTick()
+  draw(props.progress)
+})
+</script>
+
+<template>
+  <div class="circle-progress">
+    <canvas ref="canvasRef" width="100" height="100" />
+    <div class="label">
+      {{ Math.round(progress * 100) }}%
+    </div>
+  </div>
+</template>
+
+<style>
+/* 5rem 不起作用，目前还不知道什么原因 */
+:root{
+  --size: calc(var(--widget-font-size) * 5);
+}
+.circle-progress{
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  max-width: var(--size);
+}
+canvas{
+  width: var(--size);
+}
+
+.label{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  user-select: none;
+  transform: translate(-50%,-50%);
+  font-size: calc(var(--widget-font-size) * 0.8);
+  font-weight: bold;
+}
+</style>

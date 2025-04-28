@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import CircleProgress from "@/widgets/base-panel/CircleProgress.vue";
+import CircleProgress from '@/components/CircleProgress.vue'
+
 defineProps({
-  title:String,
-  progress:Number,
-  subtitle:String
+  title: String,
+  progress: Number,
+  subtitle: String,
 })
 </script>
 
 <template>
   <div class="flex flex-col items-center h-full justify-between">
-    <div>{{title}}</div>
-    <circle-progress :progress="progress"/>
+    <div>{{ title }}</div>
+    <CircleProgress :progress="progress" />
     <div>{{ subtitle }}</div>
   </div>
 </template>

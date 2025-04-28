@@ -1,14 +1,14 @@
-import type { RouteRecordRaw } from 'vue-router';
-import ServerWidget from './Server.widget';
+import type { RouteRecordRaw } from 'vue-router'
+import ServerWidget from './Server.widget'
 
-const path = ServerWidget.path;
-const name = ServerWidget.name;
+const path = ServerWidget.path
+const name = ServerWidget.name
 
-const configPagePath = ServerWidget.configPagePath!.split('?')[0];
+const configPagePath = ServerWidget.configPagePath!.split('?')[0]
 
 const ServerWidgetRoutes: RouteRecordRaw[] = [
   {
-    path: path,
+    path,
     name: `${name}`,
     component: () => import('./ServerWidgetView.vue'),
   },
@@ -17,6 +17,6 @@ const ServerWidgetRoutes: RouteRecordRaw[] = [
     name: `${name}.config`,
     component: () => import('./ServerConfigView.vue'),
   },
-];
+]
 
-export default ServerWidgetRoutes;
+export default ServerWidgetRoutes

@@ -11,6 +11,15 @@ const router = createRouter({
       component: () => import('@/LandingPage.vue'),
     },
     ...WidgetRouter,
+    {
+      name: 'Server',
+      path: '/server',
+      children: [{
+        path: 'edit',
+        name: 'ServerEdit',
+        component: () => import('@/view/server/EditServerView.vue'),
+      }],
+    },
   ],
 })
 
