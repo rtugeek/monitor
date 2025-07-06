@@ -6,7 +6,7 @@ import { SystemApi } from '@widget-js/core'
 import { useAppVersion, useWidget } from '@widget-js/vue3'
 import { ref } from 'vue'
 
-const widget = useWidget()
+useWidget()
 const cpuCoreNumber = ref(0)
 const cpuPercent = ref(0)
 const networkRef = ref<InstanceType<typeof NetworkBlock>>()
@@ -16,7 +16,6 @@ const gpuCoreTemperature = ref(0)
 const memTotal = ref(0)
 function load() {
   SystemApi.getHardware(['Memory', 'Gpu', 'Cpu', 'Network']).then((res) => {
-    console.log(res)
     const cpu = res.find(it => it.hardwareType == 'Cpu')
     if (cpu) {
       const load = cpu.children.find(sensor => sensor.sensorType == 'Load')

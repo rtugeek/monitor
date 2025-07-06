@@ -1,6 +1,6 @@
 {
   "name": "widget.js.monitor",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "requiredAppVersion": "24.9.1",
   "author": "Neo Fu",
   "homepage": "",
@@ -100,6 +100,41 @@
           "link": "https://github.com/rtugeek/monitor"
         }
       ]
+    },
+    {
+      "name": "widget.js.monitor.energy_label",
+      "title": {
+        "zh-CN": "打工能耗标识"
+      },
+      "description": {
+        "zh-CN": "牛马打工人必备"
+      },
+      "keywords": [
+        "recommend"
+      ],
+      "security": false,
+      "permissions": [],
+      "lang": "zh-CN",
+      "width": 4,
+      "height": 6,
+      "maxWidth": 4,
+      "webviewTag": false,
+      "maxHeight": 6,
+      "minWidth": 3,
+      "minHeight": 5,
+      "movable": true,
+      "singleton": false,
+      "resizable": true,
+      "path": "/widget/energy_label",
+      "meta": {},
+      "backgroundThrottling": true,
+      "previewImage": "/image/preview_energy_label.png",
+      "categories": [
+        "fun"
+      ],
+      "supportDeployMode": 1,
+      "configPagePath": "/widget/config/energy_label?width=600&height=500&frame=true&transparent=false",
+      "routes": []
     }
   ],
   "pages": []
