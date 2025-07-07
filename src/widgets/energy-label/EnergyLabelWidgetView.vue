@@ -15,6 +15,7 @@ const currentColor = ref(colors[0])
 const currentTop = ref('0')
 function onMonitorUpdate(data: { cpuPercent: number, memPercent: number }) {
   currentLevel.value = Math.ceil((data.cpuPercent * 0.8 + data.memPercent * 0.2) / 20)
+  currentLevel.value = Math.max(1, currentLevel.value)
   currentColor.value = colors[currentLevel.value - 1]
   const heightStep = 30 + 6
   currentTop.value = `${Math.round(heightStep * (currentLevel.value - 1))}px`
