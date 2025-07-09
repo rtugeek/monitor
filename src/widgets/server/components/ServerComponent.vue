@@ -109,6 +109,7 @@ const fsLoad = computed(() => {
   padding: 0.5rem;
   background: var(--widget-background-color);
   border-radius: 0.5rem;
+  border: var(--widget-border-color) solid 1px;
 }
 .header{
   font-size: 14px;

@@ -17,7 +17,7 @@
     "@nutui/touch-emulator": "^1.0.0",
     "@vueuse/core": "^13.1.0",
     "@widget-js/core": "^24.1.1-beta.54",
-    "@widget-js/vue3": "^24.1.1-beta.49",
+    "@widget-js/vue3": "^24.1.1-beta.65",
     "axios": "^1.9.0",
     "dayjs": "^1.11.13",
     "dexie": "^4.0.11",
