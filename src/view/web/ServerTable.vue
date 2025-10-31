@@ -8,7 +8,7 @@ import { useServerInfoStore } from '@/stores/useServerInfoStore'
 import { IconUtils } from '@/utils/IconUtils'
 import { IpUtils } from '@/utils/IpUtils'
 import { ServerUtils } from '@/utils/ServerUtils'
-import { Add, Book, Copy } from '@icon-park/vue-next'
+import { Add, Book, Copy, Delete, Edit } from '@icon-park/vue-next'
 import { useIntervalFn } from '@vueuse/core'
 import { BrowserWindowApi } from '@widget-js/core'
 import dayjs from 'dayjs'
@@ -131,9 +131,9 @@ function viewDoc() {
     <el-table-column :label="t('server.table.action')">
       <template #default="{ row }">
         <el-button
-          type="primary" size="small" @click="editServer(row)"
+          type="primary" circle size="small" @click="editServer(row)"
         >
-          {{ t('server.actions.edit') }}
+          <Edit />
         </el-button>
         <el-popconfirm
           :title="t('server.actions.confirmDelete', { name: row.name })"
@@ -141,8 +141,8 @@ function viewDoc() {
           @confirm="serverInfoStore.remove(row.id)"
         >
           <template #reference>
-            <el-button type="danger" size="small">
-              {{ t('server.actions.delete') }}
+            <el-button circle type="danger" size="small">
+              <Delete />
             </el-button>
           </template>
         </el-popconfirm>
