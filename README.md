@@ -1,11 +1,12 @@
 # Monitor
+## A lightweight servers monitoring tool
 
 **Monitor** is a lightweight server monitoring tool that allows you to view the status of multiple server on a single page.  
 It provides real-time monitoring of key system metrics including **CPU, GPU, memory, disk, and network**.  
 The server is built on **systeminformation** and offers **RESTful API** endpoints for easy customization and integration.
 
-📺[Live Demo](https://rtugeek.github.io/monitor/#/ )  
-📘[Usage Guide](https://widgetjs.cn/monitor/doc)
+🔗 [Live Demo](https://rtugeek.github.io/monitor/#/)  
+📘 [Usage Guide](https://widgetjs.cn/monitor/doc)
 
 ## Features
 
@@ -24,6 +25,5 @@ The server is built on **systeminformation** and offers **RESTful API** endpoint
 ## Desktop Widgets
 ### Base Panel Widget
 ![Base Panel Widget Preview](./public/image/preview_base_panel.png)
+### Server Widget
 ![Server Widget Preview](./public/image/preview_server.png)
-
-
