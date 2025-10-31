@@ -6,7 +6,13 @@ export interface MonitorApiConfig {
   token: string
   /**
    * 单位秒
+   * @deprecated
    */
+  interval?: number
+}
+
+export interface AppConfig {
+  maskIp: boolean
   interval?: number
 }
 export interface ServerInfo {
@@ -33,4 +39,24 @@ export interface ServerInfo {
    */
   intranetIp?: string
   note?: string
+  status?: ServerStatus
+}
+
+export interface ServerStatus {
+  cpuLoad?: Systeminformation.CurrentLoadData
+  mem?: Systeminformation.MemData
+  fsSize?: Systeminformation.FsSizeData[]
+  msg?: string
+}
+
+export const emptyServerInfo: ServerInfo = {
+  id: '',
+  name: '',
+  ip: '',
+  platform: '',
+  api: {
+    url: '',
+    token: '',
+    interval: 10,
+  },
 }

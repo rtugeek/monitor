@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { MonitorApi } from '@/api/MonitorApi'
 import BaseView from '@/components/BaseView.vue'
 import { useServerInfoStore } from '@/stores/useServerInfoStore'
 import { NotificationUtils } from '@/utils/NotificationUtils'
@@ -7,10 +6,10 @@ import { storeToRefs } from 'pinia'
 import { ref } from 'vue'
 
 const serverInfoStore = useServerInfoStore()
-const { syncServerConfig } = storeToRefs(serverInfoStore)
+const { masterServerConfig } = storeToRefs(serverInfoStore)
 
-const url = ref<string>(syncServerConfig.value?.url ?? '')
-const token = ref<string>(syncServerConfig.value?.token ?? '')
+const url = ref<string>(masterServerConfig.value?.url ?? '')
+const token = ref<string>(masterServerConfig.value?.token ?? '')
 
 const loading = ref(false)
 async function onSubmit() {
@@ -23,11 +22,10 @@ async function onSubmit() {
     url: url.value,
     token: token.value,
   }
-  syncServerConfig.value = newConfig
+  masterServerConfig.value = newConfig
   try {
-    const servers = await MonitorApi.getServers(newConfig)
-    await serverInfoStore.saveAll(servers)
-    NotificationUtils.success("同步成功")
+    await serverInfoStore.fetchFromServer()
+    NotificationUtils.success('同步成功')
   }
   catch (e) {
     console.error(e)

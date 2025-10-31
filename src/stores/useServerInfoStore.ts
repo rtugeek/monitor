@@ -1,4 +1,4 @@
-import type { MonitorApiConfig, ServerInfo } from '@/data/ServerInfo'
+import type { AppConfig, MonitorApiConfig, ServerInfo } from '@/data/ServerInfo'
 import type { MaybeRef } from '@vueuse/core'
 import { MonitorApi } from '@/api/MonitorApi'
 import { ServerInfoRepository } from '@/data/repository/ServerInfoRepository'
@@ -9,7 +9,8 @@ import { ref, toRaw, toValue, watch } from 'vue'
 
 export const useServerInfoStore = defineStore('serverInfo', () => {
   const servers = ref<ServerInfo[]>([])
-  const syncServerConfig = useStorage<MonitorApiConfig>('sync-server', { url: '', token: '' })
+  const masterServerConfig = useStorage<MonitorApiConfig>('sync-server', { url: '', token: '' })
+  const config = useStorage<AppConfig>('config', { maskIp: false })
   const broadcastChannel = useBroadcastChannel({ name: 'serverInfo' })
   watch(() => broadcastChannel.data, () => {
     load()
@@ -28,8 +29,8 @@ export const useServerInfoStore = defineStore('serverInfo', () => {
       data: raw,
     })
     await load()
-    if (syncServerConfig) {
-      MonitorApi.postServers(syncServerConfig.value!, servers.value)
+    if (masterServerConfig) {
+      MonitorApi.postServers(masterServerConfig.value!, servers.value)
     }
   }
 
@@ -51,10 +52,26 @@ export const useServerInfoStore = defineStore('serverInfo', () => {
       data: id,
     })
     await load()
-    if (syncServerConfig) {
-      MonitorApi.postServers(syncServerConfig.value!, servers.value)
+    if (masterServerConfig) {
+      MonitorApi.postServers(masterServerConfig.value!, servers.value)
     }
   }
+
+  function setMasterServer(config: MonitorApiConfig) {
+    if (config.token && config.url) {
+      masterServerConfig.value.token = config.token
+      masterServerConfig.value.url = config.url
+      fetchFromServer()
+    }
+    else {
+      throw new Error('Url and token are required')
+    }
+  }
+
+  async function fetchFromServer() {
+    const servers = await MonitorApi.getServers(masterServerConfig.value)
+    await saveAll(servers)
+  }
   load()
-  return { servers, load, save, saveAll, remove, syncServerConfig }
+  return { servers, load, save, saveAll, remove, masterServerConfig, setMasterServer, config, fetchFromServer }
 })

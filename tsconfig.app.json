@@ -6,7 +6,10 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "noEmit": true
+    "noEmit": true,
+    "types": [
+      "element-plus/global"
+    ]
   },
   "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
   "exclude": ["src/**/__tests__/*"]

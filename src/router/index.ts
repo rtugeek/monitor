@@ -8,7 +8,7 @@ const router = createRouter({
       name: 'Index',
       path: '/',
       children: [],
-      component: () => import('@/LandingPage.vue'),
+      component: () => import('@/view/web/WebHomepage.vue'),
     },
     ...WidgetRouter,
     {
@@ -19,6 +19,11 @@ const router = createRouter({
         name: 'ServerEdit',
         component: () => import('@/view/server/EditServerView.vue'),
       }],
+    },
+    {
+      name: 'WidgetHomepage',
+      path: '/widget/homepage',
+      component: () => import('@/LandingPage.vue'),
     },
   ],
 })

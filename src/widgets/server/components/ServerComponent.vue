@@ -4,6 +4,7 @@ import type { Systeminformation } from 'systeminformation'
 import { MonitorApi } from '@/api/MonitorApi'
 import CircleProgress from '@/components/CircleProgress.vue'
 import OsDataComponent from '@/components/OsDataComponent.vue'
+import { BytesUtils } from '@/utils/BytesUtils'
 import { IconUtils } from '@/utils/IconUtils'
 import { IpUtils } from '@/utils/IpUtils'
 import { NotificationUtils } from '@/utils/NotificationUtils'
@@ -12,7 +13,6 @@ import { Copy, Pencil } from '@icon-park/vue-next'
 import { useIntervalFn } from '@vueuse/core'
 import dayjs from 'dayjs'
 import { computed, ref } from 'vue'
-import { BytesUtils } from '../../../utils/BytesUtils'
 
 const props = defineProps<{
   server: ServerInfo
@@ -69,7 +69,7 @@ const fsLoad = computed(() => {
   <div class="server flex flex-col">
     <div class="header flex items-center gap-1">
       <div class="name flex  items-center gap-1 cursor-pointer" @click="edit">
-        <img style="width: 24px" :src="IconUtils.getPlatformIcon(server.platform)"> {{ server.name }} <Pencil />
+        <img style="width: 24px" :src="IconUtils.getPlatformIcon(server.platform)" alt="OS"> {{ server.name }} <Pencil />
       </div>
       <div class="ml-auto cursor-pointer flex items-center gap-1" @click="copyIp">
         {{ maskIp ? IpUtils.mask(server.ip) : server.ip }}

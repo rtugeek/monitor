@@ -20,5 +20,6 @@ export default antfu({
     'style/max-statements-per-line': ['error', {
       max: 2,
     }],
+    'unused-imports/no-unused-vars': ['error', { caughtErrors: 'none' }],
   },
 })

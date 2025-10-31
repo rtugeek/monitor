@@ -1,14 +1,11 @@
-import type {LocaleMessages} from "vue-i18n";
+import type { LocaleMessages } from 'vue-i18n'
 
-const messages: LocaleMessages = {
-    zh: {
-        message: {
-        hello: 'Hello World!'
-        }
-    },
-    en: {
-        message: {
-        hello: 'こんにちは、世界！'
-        }
-    }
+import en from './en'
+import zh from './zh'
+
+const messages: LocaleMessages<any> = {
+  zh,
+  en,
 }
+
+export default messages

@@ -1,13 +1,13 @@
-import type { RouteRecordRaw } from 'vue-router';
-import BasePanelWidget from './BasePanel.widget';
+import type { RouteRecordRaw } from 'vue-router'
+import BasePanelWidget from './BasePanel.widget'
 
-const path = BasePanelWidget.path;
-const configPagePath = BasePanelWidget.configPagePath!!.split('?')[0];
-const name = BasePanelWidget.name;
+const path = BasePanelWidget.path
+const configPagePath = BasePanelWidget.configPagePath!.split('?')[0]
+const name = BasePanelWidget.name
 
 const BasePanelWidgetRoutes: RouteRecordRaw[] = [
   {
-    path: path,
+    path,
     name: `${name}`,
     component: () =>
       import(
@@ -18,10 +18,10 @@ const BasePanelWidgetRoutes: RouteRecordRaw[] = [
     path: configPagePath,
     name: `${name}.config`,
     component: () =>
-        import(
-            /* webpackChunkName: "cn.example.widget.configPagePath" */ './BasePanelConfigView.vue'
-            ),
+      import(
+        /* webpackChunkName: "cn.example.widget.configPagePath" */ './BasePanelConfigView.vue'
+      ),
   },
-];
+]
 
-export default BasePanelWidgetRoutes;
+export default BasePanelWidgetRoutes

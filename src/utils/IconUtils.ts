@@ -45,7 +45,7 @@ export class IconUtils {
     }
   }
 
-  static getPlatformIcon(platform: ServerPlatform) {
+  static getPlatformIcon(platform?: ServerPlatform | string) {
     if (platform === 'Alibaba Cloud') {
       return Alibaba
     }
