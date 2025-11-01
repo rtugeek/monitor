@@ -27,3 +27,14 @@ The server is built on **systeminformation** and offers **RESTful API** endpoint
 ![Base Panel Widget Preview](./public/image/preview_base_panel.png)
 ### Server Widget
 ![Server Widget Preview](./public/image/preview_server.png)
+
+
+## Project Structure
+```
+monitor/
+├── src/                    # Client-side code (Vue 3)
+│   ├── widgets/            # Desktop widgets (Electron + Vue 3)/              # Vue views/pages
+│   └── ...                 # Other client-side code
+├── server/                 # Server-side code (NestJS)
+└── vitepress/              # Documentation site (VitePress)
+```
