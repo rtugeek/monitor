@@ -57,7 +57,13 @@
       ],
       "supportDeployMode": 17,
       "configPagePath": "/widget/config/server?width=400&height=700&frame=true&transparent=false",
-      "routes": []
+      "routes": [],
+      "socialLinks": [
+        {
+          "name": "github",
+          "link": "https://github.com/rtugeek/monitor"
+        }
+      ]
     },
     {
       "name": "widget.js.monitor.energy_label",
@@ -92,7 +98,13 @@
       ],
       "supportDeployMode": 1,
       "configPagePath": "/widget/config/energy_label?width=600&height=500&frame=true&transparent=false",
-      "routes": []
+      "routes": [],
+      "socialLinks": [
+        {
+          "name": "github",
+          "link": "https://github.com/rtugeek/monitor"
+        }
+      ]
     },
     {
       "name": "cn.example.widget.base_panel",

@@ -17,6 +17,12 @@ const ServerWidget = new Widget({
   path: '/widget/server',
   configPagePath:
     '/widget/config/server?width=400&height=700&frame=true&transparent=false',
+  socialLinks: [
+    {
+      name: 'github',
+      link: 'https://github.com/rtugeek/monitor',
+    },
+  ],
 })
 
 export default ServerWidget

@@ -18,6 +18,12 @@ const EnergyLabelWidget = new Widget({
   supportDeployMode: DeployMode.NORMAL,
   configPagePath:
     '/widget/config/energy_label?width=600&height=500&frame=true&transparent=false',
+  socialLinks: [
+    {
+      name: 'github',
+      link: 'https://github.com/rtugeek/monitor',
+    },
+  ],
 })
 
 export default EnergyLabelWidget
