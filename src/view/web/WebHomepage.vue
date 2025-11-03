@@ -8,6 +8,7 @@ import SettingDialog from '@/view/web/SettingDialog.vue'
 
 import { Add, AllApplication, Book, Moon, Setting, Sun, Translate } from '@icon-park/vue-next'
 import { useDark } from '@vueuse/core'
+import { BrowserWindowApi } from '@widget-js/core'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
@@ -37,6 +38,9 @@ function widgetPage() {
   window.open(routeUrl.href, '_blank')
 }
 
+function onDocClicked() {
+  BrowserWindowApi.openUrl('https://widgetjs.cn/monitor/doc/quick-start.html', { external: true })
+}
 function setLocale(l: string) {
   locale.value = l
 }
@@ -60,7 +64,7 @@ function setLocale(l: string) {
           </div>
         </el-button>
         <div style="margin: 12px 12px;height: 32px;border-right: 2px solid var(--el-border-color)" />
-        <el-button link @click="onAddServerClicked">
+        <el-button link @click="onDocClicked">
           <template #icon>
             <Book />
           </template>{{ t('app.docs') }}

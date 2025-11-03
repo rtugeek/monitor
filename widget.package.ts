@@ -12,6 +12,10 @@ export default new WidgetPackage({
     hostname: 'widgetjs.cn',
     hash: true,
   },
+  socialLinks: [
+    { name: 'github', link: 'https://github.com/rtugeek/monitor' },
+  ],
+  zipUrl: 'https://widgetjs.cn/monitor/widget.zip',
   requiredAppVersion: '24.9.1',
   hash: true,
   homepage: '',

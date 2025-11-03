@@ -15,7 +15,7 @@ hero:
       link: https://rtugeek.github.io/monitor/#/
     - theme: alt
       text: 快速上手
-      link: https://widgetjs.cn/monitor/doc/quick-start/
+      link: https://widgetjs.cn/monitor/doc/quick-start.html
 
 features:
   - title: 实时多维监控

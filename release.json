@@ -3,6 +3,10 @@
     {
       "src": "./dist/",
       "dest": "/www/wwwroot/widgetjs.cn/monitor"
+    },
+    {
+      "pattern": "./dist/monitor_*.zip",
+      "dest": "/www/wwwroot/widgetjs.cn/monitor/widget.zip"
     }
   ],
   "ftpConfig": {

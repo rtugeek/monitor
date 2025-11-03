@@ -1,6 +1,6 @@
 {
   "name": "widget.js.monitor",
-  "version": "1.4.0",
+  "version": "1.6.0",
   "requiredAppVersion": "24.9.1",
   "author": "Neo Fu",
   "homepage": "",
@@ -18,6 +18,7 @@
     "hostname": "widgetjs.cn",
     "hash": true
   },
+  "zipUrl": "https://widgetjs.cn/monitor/widget.zip",
   "hash": true,
   "url": "",
   "widgets": [
