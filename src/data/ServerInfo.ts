@@ -40,6 +40,7 @@ export interface ServerInfo {
   intranetIp?: string
   note?: string
   status?: ServerStatus
+  account?: string // Added an optional 'account' field to the ServerInfo interface
 }
 
 export interface ServerStatus {

@@ -3,6 +3,7 @@ import type { ServerInfo } from '@/data/ServerInfo'
 import { MonitorApi } from '@/api/MonitorApi'
 import ElCloudSelect from '@/components/ElCloudSelect.vue'
 import { useServerInfoStore } from '@/stores/useServerInfoStore'
+import { ElMessage } from 'element-plus'
 import { nextTick, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
@@ -19,7 +20,7 @@ const formRef = ref(null)
 
 // 新增校验规则
 const ipRegex = /^(?:25[0-5]|2[0-4]\d|[01]?\d?\d)(?:\.(?:25[0-5]|2[0-4]\d|[01]?\d?\d)){3}$/
-const rules = {
+const rules: Record<string, Array<any>> = {
   'name': [
     { required: true, message: t('server.validation.enterName'), trigger: 'blur' },
     { max: 30, message: t('server.validation.nameMax'), trigger: 'blur' },
@@ -27,8 +28,12 @@ const rules = {
   'ip': [
     {
       validator: (_rule: any, value: string) => {
-        if (!value) { return Promise.reject(new Error(t('server.validation.enterIp'))) }
-        return ipRegex.test(value) ? Promise.resolve() : Promise.reject(new Error(t('server.validation.invalidIpv4')))
+        if (!value) {
+          return Promise.reject(new Error(t('server.validation.enterIp')))
+        }
+        return ipRegex.test(value)
+          ? Promise.resolve()
+          : Promise.reject(new Error(t('server.validation.invalidIpv4')))
       },
       trigger: 'blur',
     },
@@ -36,7 +41,9 @@ const rules = {
   'api.url': [
     {
       validator: (_rule: any, value: string) => {
-        if (!value) { return Promise.reject(new Error(t('server.validation.enterApiUrl'))) }
+        if (!value) {
+          return Promise.reject(new Error(t('server.validation.enterApiUrl')))
+        }
         try {
           // 简单校验 URL 格式
           // 如果需要更严格可替换为更复杂的正则
@@ -53,6 +60,10 @@ const rules = {
   ],
   'api.token': [
     { required: true, message: t('server.validation.enterToken'), trigger: 'blur' },
+  ],
+  // Add a new field for account under other information
+  'account': [
+    { required: false, message: t('server.validation.enterAccount'), trigger: 'blur' },
   ],
 }
 
@@ -90,9 +101,10 @@ async function save() {
   }
 }
 
-onMounted(async () => {
-  await nextTick()
-  (formRef.value as any)?.clearValidate()
+onMounted(() => {
+  nextTick().then(() => {
+    (formRef.value as any)?.clearValidate()
+  })
 })
 </script>
 
@@ -145,6 +157,10 @@ onMounted(async () => {
       </el-form-item>
       <el-form-item :label="t('server.dialog.note')" prop="note">
         <el-input v-model="server.note" />
+      </el-form-item>
+      <!-- Add the account field in the template -->
+      <el-form-item :label="t('server.dialog.account')" prop="account">
+        <el-input v-model="server.account" />
       </el-form-item>
     </el-form>
     <template #footer>

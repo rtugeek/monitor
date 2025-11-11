@@ -46,6 +46,7 @@ const zh = {
       tokenPlaceholder: '令牌',
       intervalPlaceholder: '默认10秒',
       tooltipMaster: '用于服务器信息备份/恢复',
+      account: '登录账号',
     },
     validation: {
       enterName: '请输入名称',

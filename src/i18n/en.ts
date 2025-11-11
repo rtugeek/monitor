@@ -46,6 +46,7 @@ const en = {
       tokenPlaceholder: 'Token',
       intervalPlaceholder: 'Default 10s',
       tooltipMaster: 'Used for server info backup/restore',
+      account: 'Account',
     },
     validation: {
       enterName: 'Please enter a name',
