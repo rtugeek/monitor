@@ -1,15 +1,17 @@
 <script setup lang="ts">
-import type { ServerInfo } from '@/data/ServerInfo'
+import type { PortNote, RedisNote, ServerInfo } from '@/data/ServerInfo'
 import IconParkLink from '@/components/IconParkLink.vue'
 import { emptyServerInfo } from '@/data/ServerInfo'
+import { useServerInfoStore } from '@/stores/useServerInfoStore'
 import ServerDialog from '@/view/web/ServerDialog.vue'
+import ServerNoteDailog from '@/view/web/ServerNoteDailog.vue'
+
 import ServerTable from '@/view/web/ServerTable.vue'
 import SettingDialog from '@/view/web/SettingDialog.vue'
-
 import { Add, AllApplication, Book, Moon, Setting, Sun, Translate } from '@icon-park/vue-next'
 import { useDark } from '@vueuse/core'
 import { BrowserWindowApi } from '@widget-js/core'
-import { ref } from 'vue'
+import { ref, toRaw } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
@@ -21,7 +23,9 @@ isDark.value = true
 
 const currentServer = ref<ServerInfo>(JSON.parse(JSON.stringify(emptyServerInfo)))
 const showServerDialog = ref(false)
+const showServerNoteDialog = ref(false)
 const showSettingDialog = ref(false)
+const serverStore = useServerInfoStore()
 
 function onAddServerClicked() {
   currentServer.value = JSON.parse(JSON.stringify(emptyServerInfo))
@@ -31,6 +35,11 @@ function onAddServerClicked() {
 function onEditServer(server: ServerInfo) {
   currentServer.value = JSON.parse(JSON.stringify(server))
   showServerDialog.value = true
+}
+
+function onEditServerNote(server: ServerInfo) {
+  currentServer.value = JSON.parse(JSON.stringify(server))
+  showServerNoteDialog.value = true
 }
 
 function widgetPage() {
@@ -43,6 +52,12 @@ function onDocClicked() {
 }
 function setLocale(l: string) {
   locale.value = l
+}
+
+function onSaveServerNote(portNotes: PortNote[], redisNotes: RedisNote[]) {
+  currentServer.value.portNotes = portNotes.map(toRaw)
+  currentServer.value.redisNotes = redisNotes.map(toRaw)
+  serverStore.save(currentServer)
 }
 </script>
 
@@ -96,10 +111,11 @@ function setLocale(l: string) {
     </el-header>
     <el-main>
       <el-card shadow="hover" body-style="padding:0">
-        <ServerTable @add="onAddServerClicked" @edit="onEditServer" />
+        <ServerTable @add="onAddServerClicked" @edit="onEditServer" @note="onEditServerNote" />
       </el-card>
     </el-main>
     <ServerDialog v-model="currentServer" v-model:show="showServerDialog" />
+    <ServerNoteDailog v-model:show="showServerNoteDialog" :port-notes="currentServer.portNotes" :redis-notes="currentServer.redisNotes" @save="onSaveServerNote" />
     <SettingDialog v-model="showSettingDialog" />
   </el-container>
 </template>

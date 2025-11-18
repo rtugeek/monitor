@@ -66,6 +66,47 @@
       ]
     },
     {
+      "name": "widget.js.monitor.energy_label",
+      "title": {
+        "zh-CN": "打工能耗标识"
+      },
+      "description": {
+        "zh-CN": "牛马打工人必备"
+      },
+      "keywords": [
+        "recommend"
+      ],
+      "security": false,
+      "permissions": [],
+      "lang": "zh-CN",
+      "width": 4,
+      "height": 6,
+      "maxWidth": 4,
+      "webviewTag": false,
+      "maxHeight": 6,
+      "minWidth": 3,
+      "minHeight": 5,
+      "movable": true,
+      "singleton": false,
+      "resizable": true,
+      "path": "/widget/energy_label",
+      "meta": {},
+      "backgroundThrottling": true,
+      "previewImage": "/image/preview_energy_label.png",
+      "categories": [
+        "fun"
+      ],
+      "supportDeployMode": 1,
+      "configPagePath": "/widget/config/energy_label?width=600&height=500&frame=true&transparent=false",
+      "routes": [],
+      "socialLinks": [
+        {
+          "name": "github",
+          "link": "https://github.com/rtugeek/monitor"
+        }
+      ]
+    },
+    {
       "name": "cn.example.widget.base_panel",
       "title": {
         "zh-CN": "监控面板",
@@ -100,47 +141,6 @@
       ],
       "supportDeployMode": 17,
       "configPagePath": "/widget/base_panel/config?frame=true&transparent=false&height=400",
-      "routes": [],
-      "socialLinks": [
-        {
-          "name": "github",
-          "link": "https://github.com/rtugeek/monitor"
-        }
-      ]
-    },
-    {
-      "name": "widget.js.monitor.energy_label",
-      "title": {
-        "zh-CN": "打工能耗标识"
-      },
-      "description": {
-        "zh-CN": "牛马打工人必备"
-      },
-      "keywords": [
-        "recommend"
-      ],
-      "security": false,
-      "permissions": [],
-      "lang": "zh-CN",
-      "width": 4,
-      "height": 6,
-      "maxWidth": 4,
-      "webviewTag": false,
-      "maxHeight": 6,
-      "minWidth": 3,
-      "minHeight": 5,
-      "movable": true,
-      "singleton": false,
-      "resizable": true,
-      "path": "/widget/energy_label",
-      "meta": {},
-      "backgroundThrottling": true,
-      "previewImage": "/image/preview_energy_label.png",
-      "categories": [
-        "fun"
-      ],
-      "supportDeployMode": 1,
-      "configPagePath": "/widget/config/energy_label?width=600&height=500&frame=true&transparent=false",
       "routes": [],
       "socialLinks": [
         {

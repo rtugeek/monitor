@@ -8,14 +8,14 @@ import { useServerInfoStore } from '@/stores/useServerInfoStore'
 import { IconUtils } from '@/utils/IconUtils'
 import { IpUtils } from '@/utils/IpUtils'
 import { ServerUtils } from '@/utils/ServerUtils'
-import { Add, Book, Copy, Delete, Edit } from '@icon-park/vue-next'
+import { Add, Book, Copy, Delete, Edit, Notes } from '@icon-park/vue-next'
 import { useIntervalFn } from '@vueuse/core'
 import { BrowserWindowApi } from '@widget-js/core'
 import dayjs from 'dayjs'
 import { ElMessage } from 'element-plus'
 import { useI18n } from 'vue-i18n'
 
-const emits = defineEmits(['add', 'edit'])
+const emits = defineEmits(['add', 'edit', 'note'])
 const { t } = useI18n()
 const serverInfoStore = useServerInfoStore()
 function copyIp(ip: string) {
@@ -55,6 +55,10 @@ function getMemPercentage(mem?: Systeminformation.MemData): number {
 
 function editServer(server: ServerInfo) {
   emits('edit', JSON.parse(JSON.stringify(server)))
+}
+
+function editServerNote(server: ServerInfo) {
+  emits('note', JSON.parse(JSON.stringify(server)))
 }
 
 function viewDoc() {
@@ -128,12 +132,15 @@ function viewDoc() {
       </template>
     </el-table-column>
     <el-table-column :label="t('server.table.note')" />
-    <el-table-column :label="t('server.table.action')">
+    <el-table-column :label="t('server.table.action')" width="120">
       <template #default="{ row }">
         <el-button
           type="primary" circle size="small" @click="editServer(row)"
         >
           <Edit />
+        </el-button>
+        <el-button type="warning" circle size="small" @click="editServerNote(row)">
+          <Notes />
         </el-button>
         <el-popconfirm
           :title="t('server.actions.confirmDelete', { name: row.name })"
