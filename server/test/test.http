@@ -1,0 +1,24 @@
+### Basic monitor test
+
+POST http://127.0.0.1:5549/api/monitor
+Content-Type: application/json
+Token: sjq2eqcob0irqvs7rm21oxh8zh9zp1ya
+
+{
+  "cpu": "*",
+  "mem": "*"
+}
+
+### Forward token test
+
+POST http://127.0.0.1:5549/api/monitor
+Content-Type: application/json
+Token: sjq2eqcob0irqvs7rm21oxh8zh9zp1ya
+
+{
+  "forwardToken": "sjq2eqcob0irqvs7rm21oxh8zh9zp1ya",
+  "forwardUrl": "http://127.0.0.1:5549/api/monitor",
+  "cpu": "*",
+  "mem": "*"
+}
+

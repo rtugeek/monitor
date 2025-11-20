@@ -55,7 +55,9 @@ async function bootstrap() {
   let host = '127.0.0.1'
   try {
     const res = await fetchWithTimeout('https://ifconfig.co/ip')
-    host = (await res.text()).trim()
+    if (res.ok) {
+      host = (await res.text()).trim()
+    }
   }
   catch (e) {
 
