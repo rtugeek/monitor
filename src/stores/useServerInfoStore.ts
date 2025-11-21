@@ -30,7 +30,7 @@ export const useServerInfoStore = defineStore('serverInfo', () => {
     })
     await load()
     if (masterServerConfig) {
-      MonitorApi.postServers(masterServerConfig.value!, servers.value)
+      await MonitorApi.postServers(masterServerConfig.value!, servers.value)
     }
   }
 

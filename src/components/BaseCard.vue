@@ -11,7 +11,7 @@ defineProps({
   <el-card :body-style="`padding:0;height:${bodyHeight}`" shadow="hover">
     <div class="w-full h-full">
       <div class="flex items-center m-2">
-        <div class="flex gap-2 items-center">
+        <div class="flex gap-2 items-center w-full">
           <slot name="header" />
         </div>
       </div>

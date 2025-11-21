@@ -49,8 +49,8 @@ export interface ServerInfo {
  * 对端口信息的备注
  */
 export interface PortNote {
-  port: number
-  type: 'TCP' | 'UDP'
+  port: string
+  protocol: 'TCP' | 'UDP' | string
   note: string
 }
 

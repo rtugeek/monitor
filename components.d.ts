@@ -33,7 +33,6 @@ declare module '@vue/runtime-core' {
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
     ElHeader: typeof import('element-plus/es')['ElHeader']
-    ElIcon: typeof import('element-plus/es')['ElIcon']
     ElInput: typeof import('element-plus/es')['ElInput']
     ElInputNumber: typeof import('element-plus/es')['ElInputNumber']
     ElMain: typeof import('element-plus/es')['ElMain']
@@ -43,7 +42,6 @@ declare module '@vue/runtime-core' {
     ElRow: typeof import('element-plus/es')['ElRow']
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     ElSelect: typeof import('element-plus/es')['ElSelect']
-    ElStatistic: typeof import('element-plus/es')['ElStatistic']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
@@ -74,7 +72,6 @@ declare module '@vue/runtime-core' {
     ServerOsInfoCard: typeof import('./src/components/ServerOsInfoCard.vue')['default']
     ServerPortCard: typeof import('./src/components/ServerPortCard.vue')['default']
     ServerProcessCard: typeof import('./src/components/ServerProcessCard.vue')['default']
-    ServerServiceCard: typeof import('./src/components/ServerServiceCard.vue')['default']
     System: typeof import('./src/components/icon/System.vue')['default']
   }
   export interface ComponentCustomProperties {
