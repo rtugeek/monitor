@@ -57,6 +57,10 @@ const zh = {
       invalidUrl: '请输入有效的URL，例如：http://127.0.0.1:5549/api/monitor',
       enterToken: '请输入Token',
     },
+    processInfo: '进程信息',
+    portInfo: '端口信息',
+    systemInfo: '系统信息',
+    hardwareInfo: '硬件信息',
   },
   widget: {
     title: '服务器监控',

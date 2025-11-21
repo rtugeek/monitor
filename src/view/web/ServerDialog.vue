@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { MonitorRequestOptions } from '@/api/MonitorApi'
 import type { ServerInfo } from '@/data/ServerInfo'
 import { MonitorApi } from '@/api/MonitorApi'
 import ElCloudSelect from '@/components/ElCloudSelect.vue'
@@ -80,14 +81,31 @@ async function save() {
 
   try {
     loading.value = true
-    server.value.cpu = await MonitorApi.getCpu(server.value.api)
-    server.value.memery = await MonitorApi.getMem(server.value.api)
-    server.value.os = await MonitorApi.getOs(server.value.api)
-    await serverInfoStore.save(server)
-    emits('save', server.value)
+    const options: MonitorRequestOptions = {
+      token: '',
+      url: '',
+      mem: '*',
+      osInfo: '*',
+      cpu: '*',
+    }
     if (masterServer.value) {
       serverInfoStore.setMasterServer(server.value.api)
+      options.token = server.value.api.token
+      options.url = server.value.api.url
     }
+    else {
+      options.token = serverInfoStore.masterServerConfig.token
+      options.url = serverInfoStore.masterServerConfig.url
+      options.forwardToken = server.value.api.token
+      options.forwardUrl = server.value.api.url
+    }
+    const response = await MonitorApi.post(options)
+    server.value.cpu = response.cpu
+    server.value.memery = response.mem
+    server.value.os = response.osInfo
+    server.value.status = undefined
+    await serverInfoStore.save(server)
+    emits('save', server.value)
     show.value = false
   }
   catch (e: any) {
@@ -101,7 +119,8 @@ async function save() {
   }
 }
 
-onMounted(() => {
+onMounted(async () => {
+  masterServer.value = false
   nextTick().then(() => {
     (formRef.value as any)?.clearValidate()
   })

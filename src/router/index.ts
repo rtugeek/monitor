@@ -18,6 +18,10 @@ const router = createRouter({
         path: 'edit',
         name: 'ServerEdit',
         component: () => import('@/view/server/EditServerView.vue'),
+      }, {
+        path: 'detail',
+        name: 'ServerDetail',
+        component: () => import('@/view/web/ServerDetail.vue'),
       }],
     },
     {

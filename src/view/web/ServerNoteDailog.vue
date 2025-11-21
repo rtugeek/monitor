@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { PortNote, RedisNote } from '@/data/ServerInfo'
-import Port from '@/components/icon/Port.vue'
 import Redis from '@/components/icon/Redis.vue'
 import { ref, watch } from 'vue'
 
@@ -19,22 +18,6 @@ watch(() => props.portNotes, (val) => {
 watch(() => props.redisNotes, (val) => {
   localRedisNotes.value = val ? [...val] : []
 }, { immediate: true })
-
-// PortNote dialog
-const portNoteDialogVisible = ref(false)
-const editingPortNote = ref<PortNote>({ port: 0, type: 'TCP', note: '' })
-function addPortNote() {
-  editingPortNote.value = { port: 0, type: 'TCP', note: '' }
-  portNoteDialogVisible.value = true
-  localPortNotes.value.push({
-    port: 0,
-    type: 'TCP',
-    note: '',
-  })
-}
-function deletePortNote(index: number) {
-  localPortNotes.value.splice(index, 1)
-}
 
 // RedisNote dialog
 const editingRedisNote = ref<RedisNote>({ db: 0, note: '' })
@@ -60,53 +43,6 @@ function handleSave() {
 
 <template>
   <el-dialog v-model="visible" title="编辑备注信息" width="700px" @close="handleClose">
-    <div>
-      <div class="flex items-center">
-        <div class="flex gap-2 items-center">
-          <Port :size="24" /><h3>端口备注</h3>
-        </div>
-        <el-button class="ml-auto" type="primary" size="small" @click="addPortNote">
-          新增备注
-        </el-button>
-      </div>
-      <el-table :data="localPortNotes" style="width: 100%">
-        <el-table-column prop="port" label="端口" width="160">
-          <template #default="scope">
-            <el-input-number v-model.number="scope.row.port" type="number" :min="1" :max="65535" size="small" />
-          </template>
-        </el-table-column>
-        <el-table-column prop="type" label="类型" width="120">
-          <template #default="scope">
-            <el-select v-model="scope.row.type" size="small" placeholder="选择类型">
-              <el-option label="TCP" value="TCP" />
-              <el-option label="UDP" value="UDP" />
-            </el-select>
-          </template>
-        </el-table-column>
-        <el-table-column prop="note" label="备注">
-          <template #default="scope">
-            <el-input v-model="scope.row.note" size="small" />
-          </template>
-        </el-table-column>
-        <el-table-column label="操作" width="80">
-          <template #default="scope">
-            <el-popconfirm
-              width="200"
-              title="确定要删除这条记录吗？"
-              confirm-button-text="确定"
-              cancel-button-text="取消"
-              @confirm="deletePortNote(scope.$index)"
-            >
-              <template #reference>
-                <el-button size="small" type="danger">
-                  删除
-                </el-button>
-              </template>
-            </el-popconfirm>
-          </template>
-        </el-table-column>
-      </el-table>
-    </div>
     <el-divider />
     <div>
       <div class="flex items-center">

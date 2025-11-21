@@ -14,10 +14,12 @@ import { BrowserWindowApi } from '@widget-js/core'
 import dayjs from 'dayjs'
 import { ElMessage } from 'element-plus'
 import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
 
 const emits = defineEmits(['add', 'edit', 'note'])
 const { t } = useI18n()
 const serverInfoStore = useServerInfoStore()
+const router = useRouter()
 function copyIp(ip: string) {
   navigator.clipboard.writeText(ip)
   ElMessage({
@@ -33,7 +35,12 @@ useIntervalFn(async () => {
         server.status = {}
       }
       try {
-        const stats = await MonitorApi.getBasicStats(server.api)
+        const masterServerConfig = serverInfoStore.masterServerConfig
+        const stats = await MonitorApi.getBasicStats({
+          ...masterServerConfig,
+          forwardUrl: server.api.url,
+          forwardToken: server.api.token,
+        })
         server.status.cpuLoad = stats.currentLoad
         server.status.mem = stats.mem
         server.status.fsSize = stats.fsSize
@@ -58,7 +65,11 @@ function editServer(server: ServerInfo) {
 }
 
 function editServerNote(server: ServerInfo) {
-  emits('note', JSON.parse(JSON.stringify(server)))
+  router.push({
+    name: 'ServerDetail',
+    query: { id: server.id },
+  })
+  // emits('note', JSON.parse(JSON.stringify(server)))
 }
 
 function viewDoc() {

@@ -72,6 +72,10 @@ export const useServerInfoStore = defineStore('serverInfo', () => {
     const servers = await MonitorApi.getServers(masterServerConfig.value)
     await saveAll(servers)
   }
+
+  function getById(id: string) {
+    return ServerInfoRepository.get(id)
+  }
   load()
-  return { servers, load, save, saveAll, remove, masterServerConfig, setMasterServer, config, fetchFromServer }
+  return { servers, load, save, saveAll, getById, remove, masterServerConfig, setMasterServer, config, fetchFromServer }
 })

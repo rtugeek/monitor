@@ -2,7 +2,7 @@
 
 POST http://127.0.0.1:5549/api/monitor
 Content-Type: application/json
-Token: sjq2eqcob0irqvs7rm21oxh8zh9zp1ya
+Token: xeiubxadhibbuvrxpwoj82z7s3y5rpe7
 
 {
   "cpu": "*",
@@ -13,12 +13,67 @@ Token: sjq2eqcob0irqvs7rm21oxh8zh9zp1ya
 
 POST http://127.0.0.1:5549/api/monitor
 Content-Type: application/json
-Token: sjq2eqcob0irqvs7rm21oxh8zh9zp1ya
+Token: xeiubxadhibbuvrxpwoj82z7s3y5rpe7
 
 {
-  "forwardToken": "sjq2eqcob0irqvs7rm21oxh8zh9zp1ya",
+  "forwardToken": "xeiubxadhibbuvrxpwoj82z7s3y5rpe7",
   "forwardUrl": "http://127.0.0.1:5549/api/monitor",
   "cpu": "*",
   "mem": "*"
 }
+
+
+### networkConnections test
+
+POST http://127.0.0.1:5549/api/monitor
+Content-Type: application/json
+Token: xeiubxadhibbuvrxpwoj82z7s3y5rpe7
+
+{
+  "networkConnections": "* | state:LISTEN"
+}
+
+
+### services test
+
+POST https://widgetjs.cn/api/monitor
+Content-Type: application/json
+Token: sjq2eqcob0irqvs7rm21oxh8zh9zp1ya
+
+{
+  "services": "*"
+}
+
+
+### Versions test
+
+POST https://widgetjs.cn/api/monitor
+Content-Type: application/json
+Token: sjq2eqcob0irqvs7rm21oxh8zh9zp1ya
+
+{
+  "versions": "*"
+}
+
+### processes test
+
+POST https://widgetjs.cn/api/monitor
+Content-Type: application/json
+Token: sjq2eqcob0irqvs7rm21oxh8zh9zp1ya
+
+{
+  "processes": "*"
+}
+
+
+### osInfo test
+
+POST https://widgetjs.cn/api/monitor
+Content-Type: application/json
+Token: sjq2eqcob0irqvs7rm21oxh8zh9zp1ya
+
+{
+  "osInfo": "*"
+}
+
 

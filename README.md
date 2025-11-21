@@ -17,8 +17,12 @@ The server is built on **systeminformation** and offers **RESTful API** endpoint
 - 🌐 Web interface for centralized monitoring
 
 ## Web Preview
+### Server Detail
+![Detail](./vitepress/docs/screenshot/detail.png)
+
 ### Homepage
 ![Homepage](./vitepress/docs/screenshot/homepage.png)
+
 ### Add Server
 ![Add Server](./vitepress/docs/screenshot/edit_server.png)
 

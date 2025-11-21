@@ -36,8 +36,10 @@ useIntervalFn(async () => {
   const stats = await MonitorApi.getBasicStats(props.server.api)
   currentLoad.value = stats.currentLoad
   mem.value = stats.mem
-  fsSize.value = stats.fsSize[0]
-}, (props.server.api.interval ?? 10) * 1000, { immediate: true, immediateCallback: true })
+  if (stats.fsSize) {
+    fsSize.value = stats.fsSize[0]
+  }
+}, 3 * 1000, { immediate: true, immediateCallback: true })
 
 const systemLoad = computed(() => {
   if (currentLoad.value) {

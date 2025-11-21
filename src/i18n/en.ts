@@ -57,6 +57,10 @@ const en = {
       invalidUrl: 'Please enter a valid URL, e.g.: http://127.0.0.1:5549/api/monitor',
       enterToken: 'Please enter Token',
     },
+    processInfo: 'Process',
+    portInfo: 'Port',
+    systemInfo: 'System',
+    hardwareInfo: 'Hardware',
   },
   widget: {
     title: 'Server Monitor',

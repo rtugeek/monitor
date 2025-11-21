@@ -2,7 +2,8 @@
   "fileMap": [
     {
       "src": "./dist/",
-      "dest": "/www/wwwroot/widgetjs.cn/monitor/server/dist/"
+      "dest": "/www/wwwroot/widgetjs.cn/monitor/server/dist/",
+      "ignore": ["token.txt","backup.json","*.d.ts"]
     },
     {
       "src": "ecosystem.config.js",
@@ -14,6 +15,6 @@
     }
   ],
   "ftpConfig": {
-    "host": ["mine"]`
+    "host": ["mine","aliyun1"]
   }
-}`
+}

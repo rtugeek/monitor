@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { MonitorRequestOptions } from '@/api/MonitorApi'
 import type { ServerInfo } from '@/data/ServerInfo'
 import { MonitorApi } from '@/api/MonitorApi'
 import BaseView from '@/components/BaseView.vue'
@@ -69,14 +70,20 @@ async function onSubmit() {
     }
     NotificationUtils.loading()
     loading.value = true
-    const osData = await MonitorApi.getOs(server.value.api)
-    const mem = await MonitorApi.getMem(server.value.api)
-    const cpu = await MonitorApi.getCpu(server.value.api)
+    const options: MonitorRequestOptions = {
+      ...serverStore.masterServerConfig,
+      forwardToken: server.value.api.token,
+      forwardUrl: server.value.api.url,
+      mem: '*',
+      osInfo: '*',
+      cpu: '*',
+    }
+    const response = await MonitorApi.post(options)
     formRef.value?.validate().then(({ valid, errors }) => {
       if (valid) {
-        server.value.memery = mem
-        server.value.cpu = cpu
-        server.value.os = osData
+        server.value.memery = response.mem
+        server.value.cpu = response.cpu
+        server.value.os = response.osInfo
         serverStore.save(server).then(() => {
           BrowserWindowApi.close()
         })

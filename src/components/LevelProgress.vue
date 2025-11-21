@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ColorUtils } from '@/utils/ColorUtils'
 import { computed } from 'vue'
 
 const props = defineProps({
@@ -9,10 +10,7 @@ const props = defineProps({
 })
 
 const color = computed(() => {
-  if (props.percentage > 90) { return '#ff4d4f' } // danger (red)
-  if (props.percentage > 60) { return '#ffa940' } // warning (orange)
-  if (props.percentage < 20) { return '#52c41a' } // success (green)
-  return '#1890ff' // info (blue)
+  return ColorUtils.getProcessColor(props.percentage)
 })
 
 const fixedPercentage = computed(() => {

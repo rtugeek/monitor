@@ -4,8 +4,8 @@ import { storeToRefs } from 'pinia'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n()
 const emits = defineEmits(['close'])
+const { t } = useI18n()
 const serverInfoStore = useServerInfoStore()
 const { masterServerConfig, config } = storeToRefs(serverInfoStore)
 const url = ref<string>(masterServerConfig.value?.url ?? '')
