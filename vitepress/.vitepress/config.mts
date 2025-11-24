@@ -22,7 +22,6 @@ export default defineConfig({
       {
         text: '服务端',
         items: [
-          { text: 'PM2部署', link: '/server/pm2' },
           { text: 'API', link: '/server/api' },
         ],
       },
